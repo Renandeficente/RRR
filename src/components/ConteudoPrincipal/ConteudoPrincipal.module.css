@@ -4,16 +4,29 @@
     flex-wrap: wrap; /*Define que ela quebrará pra baixo caso não tenha espaço na tela */
     width: 100%; /*Define a largura */
     padding: 4px; /*Define a "margem interna" do componente */
-    border: 1px solid rgb(150, 97, 97); /*Define que a borda terá um píxel, será sólido e terá cor vermelha */
-    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255); /*Define que a borda terá um píxel, será sólido e terá cor vermelha */
+    border-radius: 4px;
     align-items: center;
     justify-content: center;
 }
-.card {
-    width: 300px; /*Define a largura do card */
-    margin: 10px; /*Define a margem entre os cards */
-    border: 1px solid rgb(0, 0, 0); /*Define que a borda terá um píxel, será sólida e terá cor vermelha */
-    border-radius: 20px;
-    padding: 10px; /*Define a "margem interna" do card */
-    text-align: center; /*Centraliza o texto dentro do card */
+
+.productCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px;
+}
+
+.detailsButton {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.detailsButton:hover {
+    background-color: #535252;
 }

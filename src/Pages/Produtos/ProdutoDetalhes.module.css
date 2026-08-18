@@ -1,0 +1,19 @@
+.wrapper { padding-top: 24px; }
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.media img { width: 100%; height: 420px; object-fit: cover; border-radius: 12px; box-shadow: var(--shadow); }
+.info { padding: 8px 6px; }
+.title { font-size: 28px; margin: 6px 0; }
+.price { color: var(--accent); font-size: 22px; font-weight:700; margin: 6px 0; }
+.stock { color: var(--muted); margin: 6px 0; }
+.description { margin-top: 12px; color: var(--muted); }
+.actions { display:flex; gap:12px; margin-top: 18px; }
+
+@media (max-width: 860px) {
+  .card { grid-template-columns: 1fr; }
+  .media img { height: 300px; }
+}

@@ -1,19 +1,32 @@
 import style from './Card.module.css';
+import { addToCart } from '../../utils/cart';
+import {Button} from 'antd';
+import 'antd/dist/reset.css'; 
 
-// Props são propriedades que passamos para alimentar um componente
-function Card({ title, desc, price, img }) {
-    const handleImageClick = () => {
-        alert(`Você clicou na imagem de ${title}!`);
-    };
+// Recebe o produto completo como prop
+function Card({ product }) {
+    const { nome, em_estoque, preco, img, id } = product;
 
-    return <>
+    function handleAdd(){
+        addToCart(product, 1);
+
+        alert(`${nome} adicionado ao carrinho`);
+    }
+    
+
+    return (
         <div className={style.card}>
-            <img className={style.img} src={img} alt={title} onClick={handleImageClick} style={{cursor: 'pointer'}} />
-            <h4 className={style.title}>{title}</h4>
-            <p className={style.description}>{desc}</p>
-            <p className={style.price}>R$ {price.toFixed(2).replace('.', ',')}</p>
+            <img className={style.img} src={img} alt={nome} />
+            <div className={style.cardInner}>
+                <h4 className={style.title}>{nome}</h4>
+                <p className={style.description}>{em_estoque ? 'Em estoque' : 'Indisponível'}</p>
+                <div className={style.row}>
+                    <p className={style.price}>R$ {preco.toFixed(2).replace('.', ',')}</p>
+                    <Button className="btn" onClick={handleAdd}>Adicionar</Button>
+                </div>
+            </div>
         </div>
-    </>
+    );
 }
 
 export default Card;
