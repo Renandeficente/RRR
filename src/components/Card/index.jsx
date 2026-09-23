@@ -2,6 +2,7 @@ import style from './Card.module.css';
 import { addToCart } from '../../utils/cart';
 import {Button} from 'antd';
 import 'antd/dist/reset.css'; 
+import { formatarPreco } from '../../utils/formatarPreco';
 
 // Recebe o produto completo como prop
 function Card({ product }) {
@@ -21,7 +22,7 @@ function Card({ product }) {
                 <h4 className={style.title}>{nome}</h4>
                 <p className={style.description}>{em_estoque ? 'Em estoque' : 'Indisponível'}</p>
                 <div className={style.row}>
-                    <p className={style.price}>R$ {preco.toFixed(2).replace('.', ',')}</p>
+                    <p className={style.price}>{formatarPreco(preco)}</p>
                     <Button className="btn" onClick={handleAdd}>Adicionar</Button>
                 </div>
             </div>
